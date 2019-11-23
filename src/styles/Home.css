@@ -2,8 +2,8 @@
     padding-top: 5%;
 }
 .siteLogo {
-    width: 115px;
-    height: 115px;
+    width: 150px;
+    height: 150px;
     margin-right: 30px;
 }
 
@@ -27,4 +27,9 @@
 .search-bar:focus {
     border-color: dodgerBlue;
     box-shadow: 0 0 8px 0 dodgerBlue;
+}
+
+.card {
+    width: 275px;
+    margin: 25px;
 }
