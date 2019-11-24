@@ -1,3 +1,7 @@
+## Flix App
+
+Flix is an application that displays the latest releases in theaters. You are able to search for other movies as well and can click on the movie 'cards' to display more information about the movie. Data pulled from 'https://www.themoviedb.org/'
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
