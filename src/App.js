@@ -10,15 +10,12 @@ const App = () => {
 
     <Router basename={'/'}>
       <div className='app'>
-        <div className='navbar'>
-          <div className='navbar'>
-              <Link className='navbar-brand text-white' to={`/`}>
-                <img src={siteLogo} alt='Site Logo' height='50'/>
-                flix
-              </Link>
-          </div>
-          
-        </div> 
+          <nav className='navbar'>
+            <Link className='navbar-brand text-white' to={`/`}>
+              <img src={siteLogo} alt='Site Logo' height='50'/>
+              flix
+            </Link>
+          </nav>
 
           <main>
               <Route exact path="/" component={Home} />
