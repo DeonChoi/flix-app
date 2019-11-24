@@ -8,7 +8,7 @@ import siteLogo from './images/siteLogo.jpg';
 const App = () => {
   return (
 
-    <Router basename={'/flix-app'}>
+    <Router basename={'/'}>
       <div className='app'>
           <nav className='navbar'>
             <Link className='navbar-brand text-white' to={`/`}>
@@ -19,7 +19,7 @@ const App = () => {
 
           <main>
               <Route exact path="/" component={Home} />
-              {/* <Route exact path="/flix-app" component={Home} /> */}
+              <Route exact path="/flix-app" component={Home} />
               <Route path="/movies" component={Info} />
           </main>
       </div>
