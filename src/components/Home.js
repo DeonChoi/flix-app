@@ -8,6 +8,7 @@ const Home = () => {
     const API_KEY = '709a5b2814c70ed8d0008e35707f3dd3';
 
     const [movies, setMovies] = useState([]);
+    const [search, setSearch] =useState('');
 
     useEffect( () => {
         getMovies();
@@ -18,7 +19,21 @@ const Home = () => {
         const data = await response.json();
         console.log(data.results);
         setMovies(data.results);
-    }
+    };
+    
+    const handleSearch = (e) => {
+        setSearch(e.target.value);
+    };
+
+    const getSearch = async (e) => {
+        e.preventDefault();
+        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`);
+        const data = await response.json();
+        console.log(data.results);
+        setMovies(data.results);
+        setSearch('');
+    };
+
 
     return (
         <div className='container-fluid'>
@@ -31,13 +46,11 @@ const Home = () => {
                     <h1 className='display-1 text-white text-center'>flix</h1>
                     <p className='text-white text-center'>find the latest flix</p>
                 </div>
-                {/* <img src={siteLogo} alt='Site Logo' className='siteLogo' />
-                <h1 className='display-1 text-white'>flix</h1> */}
             </div>
 
-            <div className='row justify-content-center align-items-center search-container'>
-                <input type='text' placeholder='Search for a movie!' className='search-bar'></input>
-            </div>
+            <form className='row justify-content-center align-items-center search-container' onSubmit={getSearch}>
+                <input type='text' placeholder='Search for a movie!' className='search-bar' value={search} onChange={handleSearch}></input>
+            </form>
 
             <div className='row justify-content-center'>
                 {
