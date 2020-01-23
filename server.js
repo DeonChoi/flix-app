@@ -12,7 +12,6 @@ const { registerValidation, loginValidation }= require('./routes/validation');
 
 
 const app = express();
-app.use(express.static(path.join(__dirname, 'client/build')));
 
 const port = process.env.PORT || 3000;
 
@@ -174,6 +173,8 @@ app.delete('/watchlist/:id', verify, (req,res) => {
 
 });
 
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname+'/client/build/index.html'));
   });
