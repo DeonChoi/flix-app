@@ -43,7 +43,7 @@ const Login = (props) => {
             email,
             password
         };
-        await axios.post('http://localhost:3000/user/login', userLogin)
+        await axios.post('/user/login', userLogin)
         .then( res => {
             // console.log(res); 
             localStorage.setItem('auth-token', res.data);

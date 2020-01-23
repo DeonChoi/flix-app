@@ -56,7 +56,7 @@ const Info = (props) => {
         };
 
         // console.log(newMovie);
-        await axios.post('http://localhost:3000/watchlist/add', newMovie, headers)
+        await axios.post('/watchlist/add', newMovie, headers)
             .then( res => console.log(res))
             .catch( err => console.error(err));
         showModal();
@@ -77,7 +77,7 @@ const Info = (props) => {
             }
         };
 
-        await axios.delete('http://localhost:3000/watchlist/' + movieInfo.id, headers)
+        await axios.delete('/watchlist/' + movieInfo.id, headers)
             .then( res => {
                 console.log(res); 
                 console.log('Movie removed from watchlist...'); 

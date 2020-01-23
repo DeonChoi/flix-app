@@ -25,10 +25,10 @@ const password = process.env.DB_PASS || '';
 const database = process.env.DB_DATABASE || '';
 
 const db = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'flix'
+    host: 'us-cdbr-iron-east-05.cleardb.net',
+    user: 'bc2a694101f054',
+    password: 'eb9e36f2',
+    database: 'heroku_8d7b752a20bb96e'
 });
 
 db.connect((err) => {
