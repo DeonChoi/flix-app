@@ -91,19 +91,19 @@ const Register = (props) => {
                 <div className=''>
                     <input type='text' className={`registerInput text-center ${invalidFirst ? 'invalid' : '' }`} placeholder='First Name' onChange={onChangeFirstName} required/>
                 </div>
-                <div style={{color: 'red', fontSize: '0.75rem'}}>{firstError}</div>
+                <div style={{color: 'red', fontSize: '0.85rem'}}>{firstError}</div>
                 <div className=''>
                     <input type='text' className={`registerInput text-center ${invalidLast ? 'invalid' : '' }`} placeholder='Last Name' onChange={onChangeLastName} required/>
                 </div>
-                <div style={{color: 'red', fontSize: '0.75rem'}}>{lastError}</div>
+                <div style={{color: 'red', fontSize: '0.85rem'}}>{lastError}</div>
                 <div className=''>
                     <input type='email' className={`registerInput text-center ${invalidEmail ? 'invalid' : '' }`} placeholder='Email Address' onChange={onChangeEmail} required/>
                 </div>
-                <div style={{color: 'red', fontSize: '0.75rem'}}>{emailError}</div>
+                <div style={{color: 'red', fontSize: '0.85rem'}}>{emailError}</div>
                 <div className=''>
                     <input type='password' className={`registerInput text-center ${invalidPassword ? 'invalid' : '' }`} placeholder='Password' onChange={onChangePassword} required/>
                 </div>
-                <div style={{color: 'red', fontSize: '0.75rem'}}>{passwordError}</div>
+                <div style={{color: 'red', fontSize: '0.85rem'}}>{passwordError}</div>
                 <div className=''>
                     <button type="submit" className='registerSubmit'>Register</button>
                 </div>

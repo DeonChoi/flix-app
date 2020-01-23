@@ -31,7 +31,7 @@ const Login = (props) => {
     const onChangePassword = e => {
         setPassword(e.target.value);
         setInvalidPassword(true);
-        setPasswordError('Enter a password between 6 and 1024 characters');
+        setPasswordError('Enter a password between 6 and 32 characters');
         if (e.target.value.length>=6 && e.target.value.length<=32) {
              setInvalidPassword(false);
              setPasswordError('');
@@ -65,11 +65,11 @@ const Login = (props) => {
                 <div className=''>
                     <input type='email' className={`loginInput text-center ${invalidEmail ? 'invalid' : '' }`} placeholder='Email Address' onChange={onChangeEmail} />
                 </div>
-                <div style={{color: 'red', fontSize: '0.75rem'}}>{emailError}</div>
+                <div style={{color: 'red', fontSize: '0.85rem'}}>{emailError}</div>
                 <div className=''>
                     <input type='password' className={`loginInput text-center ${invalidPassword ? 'invalid' : '' }`} placeholder='Password' onChange={onChangePassword}/>
                 </div>
-                <div style={{color: 'red', fontSize: '0.75rem'}}>{passwordError}</div>
+                <div style={{color: 'red', fontSize: '0.85rem'}}>{passwordError}</div>
                 <div className=''>
                     <button type="submit" className='loginSubmit'>Login</button>
                 </div>

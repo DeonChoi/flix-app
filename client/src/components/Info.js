@@ -98,17 +98,17 @@ const Info = (props) => {
             }
 
             <div className='row justify-content-center movie-title'>
-                <h1 className='display-1'>{movieInfo.title}</h1>
+                <h1 className='movieTitle'>{movieInfo.title}</h1>
             </div>
             <div className='row'>
-                <div className='col flex-grow-0'>
+                <div className='col movie-poster-container'>
                     <img src={'https://image.tmdb.org/t/p/original' + movieInfo.poster_path} alt='Movie Poster' className='movie-poster' />
                 </div>
-                <div className='col text-justify'>
-                    <h3>Release Date: {movieInfo.release_date}</h3>
-                    <h3>Rating: {movieInfo.vote_average}</h3>
-                    <h3>Votes: {movieInfo.vote_count}</h3>
-                    <h4>Synopsis: {movieInfo.overview}</h4>
+                <div className='col '>
+                    <h3 className='movieInfo'>Release Date: {movieInfo.release_date}</h3>
+                    <h3 className='movieInfo'>Rating: {movieInfo.vote_average}</h3>
+                    <h3 className='movieInfo'>Votes: {movieInfo.vote_count}</h3>
+                    <h4 className='movieInfo'>Synopsis: {movieInfo.overview}</h4>
                     {
                         watchlistFilm 
                         ? <button type='button' className=' addButton text-monospace' onClick={removeMovie}>Remove from Watchlist</button>

@@ -75,23 +75,25 @@ const App = () => {
                   <div className='openIcon' style={ isOpen ? closeMenu3 : null }></div>
                 </span>
                 <section className='sideNav' style={ isOpen ? openNav : closeNav }>
-
-                  <Link to={'/watchlist'} className='link-right text-white text-center'>Watchlist</Link>
+                  
+                  <Link to={'/'} className='link-right text-white text-center' onClick={toggleSidenav}>Search</Link>
+                  <Link to={'/watchlist'} className='link-right text-white text-center' onClick={toggleSidenav}>Watchlist</Link>
 
                   {
                     loggedIn
                     ? null
-                    :<Link to={'/user/register'} className='link-right text-white text-center'>Register</Link>
+                    :<Link to={'/user/register'} className='link-right text-white text-center' onClick={toggleSidenav}>Register</Link>
                   }
                   {
                     loggedIn
                     ?<Link to={'/user/logout'} className='link-right text-white text-center' onClick={toggleLoggedIn}>Logout</Link>
-                    :<Link to={'/user/login'} className='link-right text-white text-center'>Login</Link>
+                    :<Link to={'/user/login'} className='link-right text-white text-center' onClick={toggleSidenav}>Login</Link>
                   }
                 </section>
               </>
               :
               <section className='float-right'>
+                <Link to={'/'} className='link-right' onClick={toggleSidenav}>Search</Link>
                 <Link to={'/watchlist'} className='link-right'>Watchlist</Link>
 
                 {
