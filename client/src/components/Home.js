@@ -17,7 +17,7 @@ const Home = () => {
     const getMovies = async () => {
         const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}&language=en-US&page=1`);
         const data = await response.json();
-        console.log(data.results);
+        // console.log(data.results);
         setMovies(data.results);
     };
     
@@ -27,11 +27,15 @@ const Home = () => {
 
     const getSearch = async (e) => {
         e.preventDefault();
-        const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`);
-        const data = await response.json();
-        console.log(data.results);
-        setMovies(data.results);
-        setSearch('');
+        if (search.length === 0) {
+            return;
+        } else {
+            const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${search}&page=1`);
+            const data = await response.json();
+            // console.log(data.results);
+            setMovies(data.results);
+            setSearch('');
+        };
     };
 
 
@@ -54,7 +58,9 @@ const Home = () => {
 
             <div className='row justify-content-center'>
                 {
-                    movies.map( movie => (
+                    movies.length === 0
+                    ? <div className='text-white' style={{fontSize:'2rem', marginTop: '2rem'}}>No Results Found</div>
+                    : movies.map( movie => (
                         <Movie id={movie.id} poster={movie.poster_path} title={movie.title} info={movie}/>
                     ))
                 }

@@ -7,7 +7,8 @@ const Movie = ({id, poster, title, info}) => {
         <Link className='card' key={id} to={{
             pathname: '/movies',
             state: {
-              movieInfo: info
+              movieInfo: info,
+              prevPath: window.location.pathname
             }
           }}>
                 <img src={'https://image.tmdb.org/t/p/original' + poster} className='card-img-top' alt='Movie Poster' />
