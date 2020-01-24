@@ -35,7 +35,7 @@ router.post('/add', verify, (req, res) => {
 
 });
 
-router.get('/movies', verify, (req,res) => {
+router.get('/saved', verify, (req,res) => {
 
     db.query(`SELECT * FROM watchlist WHERE user_email = '${req.user.user_email}'`, (err, result) => {
         if (err) {

@@ -21,7 +21,7 @@ const Watchlist = (props) => {
     };
 
     const getWatchlist = async () => {
-        await axios.get('/watchlist/movies', headers)
+        await axios.get('/watchlist/saved', headers)
             .then( res => {
                 setWatchlist(res.data);
                 console.log(res.data);
