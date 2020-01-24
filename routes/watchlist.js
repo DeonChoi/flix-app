@@ -6,11 +6,11 @@ router.post('/add', verify, (req, res) => {
     console.log(req.body);
 
     db.query(`SELECT * FROM watchlist WHERE user_email = '${req.user.user_email}' AND movieID = ${req.body.movieID}`, (err, result) => {
-        db.release();
         if (err) {
             throw err;
         };
         if (result.length > 0) {
+            db.release();
             return res.send('Movie already added to watchlist...');
         } else {
             const newMovie = {
@@ -25,12 +25,12 @@ router.post('/add', verify, (req, res) => {
             };
 
             db.query(`INSERT INTO watchlist SET ?`, newMovie, (err, result) => {
-                db.release();
                 if (err) {
                     throw err;
                 }
                 console.log(result);
                 res.json('Movie added to watchlist...');
+                db.release();
             });
         };
     });
@@ -40,12 +40,12 @@ router.post('/add', verify, (req, res) => {
 router.get('/saved', verify, (req,res) => {
 
     db.query(`SELECT * FROM watchlist WHERE user_email = '${req.user.user_email}'`, (err, result) => {
-        db.release();
         if (err) {
             throw err;
         };
         console.log(result);
         res.send(result);
+        db.release();
     });
 
 });
@@ -53,12 +53,12 @@ router.get('/saved', verify, (req,res) => {
 router.delete('/:id', verify, (req,res) => {
 
     db.query(`DELETE FROM watchlist WHERE id = ${req.params.id}`, (err, result) => {
-        db.release();
         if (err) {
             throw err;
         }
         console.log(result);
         res.send('Movie removed from watchlist...');
+        db.release();
     });
 
 });
