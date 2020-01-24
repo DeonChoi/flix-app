@@ -37,13 +37,13 @@ const Watchlist = (props) => {
                 <h1 className='text-white text-monospace'>My Watchlist</h1>
             </div>
             <div className='row justify-content-center'>
-                {
+                {/* {
                     watchlist.length === 0
                     ? <div className='text-white' style={{fontSize:'2rem', marginTop: '2rem'}}>No Results Found</div>
                     : watchlist.map( movie => 
                         <Movie id={movie.id} poster={movie.poster_path} title={movie.title} info={movie}/>
                     )
-                }
+                } */}
             </div>
         </div>
 
