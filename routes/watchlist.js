@@ -6,6 +6,7 @@ router.post('/add', verify, (req, res) => {
     console.log(req.body);
 
     db.query(`SELECT * FROM watchlist WHERE user_email = '${req.user.user_email}' AND movieID = ${req.body.movieID}`, (err, result) => {
+        db.release();
         if (err) {
             throw err;
         };
@@ -24,6 +25,7 @@ router.post('/add', verify, (req, res) => {
             };
 
             db.query(`INSERT INTO watchlist SET ?`, newMovie, (err, result) => {
+                db.release();
                 if (err) {
                     throw err;
                 }
@@ -38,6 +40,7 @@ router.post('/add', verify, (req, res) => {
 router.get('/saved', verify, (req,res) => {
 
     db.query(`SELECT * FROM watchlist WHERE user_email = '${req.user.user_email}'`, (err, result) => {
+        db.release();
         if (err) {
             throw err;
         };
@@ -50,6 +53,7 @@ router.get('/saved', verify, (req,res) => {
 router.delete('/:id', verify, (req,res) => {
 
     db.query(`DELETE FROM watchlist WHERE id = ${req.params.id}`, (err, result) => {
+        db.release();
         if (err) {
             throw err;
         }

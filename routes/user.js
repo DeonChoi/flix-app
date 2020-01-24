@@ -13,6 +13,7 @@ router.post('/register', (req,res) => {
     db.query(
         `SELECT * FROM users WHERE email = '${req.body.email}'`, 
         async (err, result) => {
+            db.release();
             if (err) {
                 throw err;
             };
@@ -30,6 +31,7 @@ router.post('/register', (req,res) => {
                 };
 
                 db.query(`INSERT INTO users SET ?`, newUser, (err, result) => {
+                    db.release();
                     if (err) {
                         throw err;
                     }
@@ -52,6 +54,7 @@ router.post('/login', (req,res) => {
     db.query(
         `SELECT * FROM users WHERE email = '${req.body.email}'`,
         (err, result) => {
+            db.release();
             if (err) {
                 throw err;
             };
@@ -60,6 +63,7 @@ router.post('/login', (req,res) => {
             } else {
                 db.query(
                     `SELECT password FROM users WHERE email = '${req.body.email}'`, async (err, result) => {
+                        db.release();
                         if (err) {
                             throw err;
                         }
