@@ -8,16 +8,10 @@
     "start": "node server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/DeonChoi/flix-app.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/DeonChoi/flix-app/issues"
-  },
+  
   "dependencies": {
     "@hapi/joi": "^17.1.0",
     "bcryptjs": "^2.4.3",
