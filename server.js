@@ -38,6 +38,11 @@ db.connect((err) => {
     console.log('Connected to database');
 });
 
+app.use(express.static(path.join(__dirname, 'client/build')));
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 app.post('/user/register', (req,res) => {
 
     const {error} = registerValidation(req.body);
@@ -174,10 +179,7 @@ app.delete('/watchlist/:id', verify, (req,res) => {
 });
 
 
-app.use(express.static(path.join(__dirname, 'client/build')));
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname+'/client/build/index.html'));
-});
+
   
 
 app.listen(port, () => {
