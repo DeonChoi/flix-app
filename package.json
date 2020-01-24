@@ -18,7 +18,6 @@
   "bugs": {
     "url": "https://github.com/DeonChoi/flix-app/issues"
   },
-  "homepage": "https://github.com/DeonChoi/flix-app#readme",
   "dependencies": {
     "@hapi/joi": "^17.1.0",
     "bcryptjs": "^2.4.3",
