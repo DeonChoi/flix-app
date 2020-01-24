@@ -24,7 +24,7 @@ const Watchlist = (props) => {
         await axios.get('/watchlist/saved', headers)
             .then( res => {
                 setWatchlist(res.data);
-                console.log(res.data);
+                // console.log(res.data);
             })
             .catch( err => {
                 console.log(err);
