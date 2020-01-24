@@ -58,7 +58,7 @@ router.post('/login', (req,res) => {
                 throw err;
             };
             if (result.length === 0) {
-                
+              
                 return res.status(400).send('Email is not valid');
             } else {
                 db.query(
