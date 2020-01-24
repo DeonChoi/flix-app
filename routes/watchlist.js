@@ -10,7 +10,7 @@ router.post('/add', verify, (req, res) => {
             throw err;
         };
         if (result.length > 0) {
-            db.release();
+            
             return res.send('Movie already added to watchlist...');
         } else {
             const newMovie = {
@@ -30,7 +30,7 @@ router.post('/add', verify, (req, res) => {
                 }
                 console.log(result);
                 res.json('Movie added to watchlist...');
-                db.release();
+                
             });
         };
     });
@@ -45,7 +45,7 @@ router.get('/saved', verify, (req,res) => {
         };
         console.log(result);
         res.send(result);
-        db.release();
+        
     });
 
 });
@@ -58,7 +58,7 @@ router.delete('/:id', verify, (req,res) => {
         }
         console.log(result);
         res.send('Movie removed from watchlist...');
-        db.release();
+        
     });
 
 });

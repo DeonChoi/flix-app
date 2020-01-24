@@ -17,7 +17,7 @@ router.post('/register', (req,res) => {
                 throw err;
             };
             if (result.length > 0){
-                db.release();
+                
                 return res.send('Email already registered...');
             } else {
                 const salt = await bcrypt.genSalt(10);
@@ -36,7 +36,7 @@ router.post('/register', (req,res) => {
                     }
                     console.log(result);
                     res.send('User added...');
-                    db.release();
+                    
                 });
             };
         
@@ -58,7 +58,7 @@ router.post('/login', (req,res) => {
                 throw err;
             };
             if (result.length === 0) {
-                db.release();
+                
                 return res.status(400).send('Email is not valid');
             } else {
                 db.query(
@@ -75,7 +75,7 @@ router.post('/login', (req,res) => {
 
                         const token = jwt.sign({user_email: req.body.email},process.env.TOKEN_SECRET);
                         res.header('auth-token', token).send(token);
-                        db.release();
+                        
                         // res.send('Logged In');
                     });
                
